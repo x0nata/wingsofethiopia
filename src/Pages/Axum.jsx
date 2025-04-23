@@ -12,11 +12,11 @@ const Axum = () => {
   const slides = [
     {
       id: 1,
-      imageUrl: new URL('../assets/i3.jpg', import.meta.url).href,
+      imageUrl: "/src/assets/I3.jpg",
     },
     {
       id: 2,
-      imageUrl: new URL('../assets/i10.jpg', import.meta.url).href,
+      imageUrl: "/src/assets/I10.jpg",
     },
   ];
 
