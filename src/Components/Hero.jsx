@@ -19,8 +19,8 @@ const Hero = () => {
   }, [isInView]);
 
   return (
-    <section className="container mx-auto p-5 pt-20 md:pt-32">
-      <div className="flex flex-col-reverse lg:flex-row justify-between lg:items-center">
+    <section className="container mx-auto p-5 pt-20 lg:pt-32">
+      <div className="flex flex-col-reverse lg:flex lg:flex-row justify-between lg:items-center">
         {/* Text Hero */}
         <motion.div
           initial="hidden"
@@ -29,16 +29,16 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="lg:w-1/2"
         >
-          <div className="mt-8 md:mt-16 lg:mt-0">
-            <p className="text-Orange text-xl md:text-2xl lg:text-[30px] italic py-3 md:py-5 px-0">
+          <div className="mt-8 lg:mt-32">
+            <p className="text-Orange text-xl lg:text-[30px] italic py-3 lg:py-5 px-0 lg:px-4">
               Добро пожаловать в агентство путешествий"Крылья Эфиопии"
             </p>
           </div>
-          <div className="px-0">
-            <h1 className="text-white text-3xl md:text-4xl lg:text-[55px] font-extrabold lg:w-[65%] pb-4">
+          <div className="px-0 lg:px-4">
+            <h1 className="text-white text-3xl lg:text-[55px] font-extrabold lg:w-[65%] pb-4">
               Откройте для себя Эфиопию вместе с нами
             </h1>
-            <p className="text-white text-base md:text-lg lg:text-[20px] font-light">
+            <p className="text-white text-base lg:text-[20px] font-light">
               Прикоснитесь к сердцу Эфиопии и откройте для себя ее богатейшую
               историю и восхитительные пейзажи
             </p>
