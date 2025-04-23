@@ -3,8 +3,8 @@ import React, { useEffect, useState, useCallback } from "react";
 import Navbar from "../Components/Navbar";
 import TourHero from "../Components/TourHero";
 import Footer from "../Components/Footer";
-import I3 from "../assets/i3.jpg";
-import I10 from "../assets/i10.jpg";
+import i3 from "../assets/i3.jpg";
+import i10 from "../assets/i10.jpg";
 import { FaTelegram } from "react-icons/fa";
 
 const Axum = () => {
@@ -14,11 +14,11 @@ const Axum = () => {
   const slides = [
     {
       id: 1,
-      imageUrl: I3,
+      imageUrl: i3,
     },
     {
       id: 2,
-      imageUrl: I10,
+      imageUrl: i10,
     },
   ];
 
