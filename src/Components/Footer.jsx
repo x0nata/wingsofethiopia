@@ -86,7 +86,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-row items-center">
                 <FaPaperPlane className="text-Orange text-xl" />
-                <p className="ml-5">info@solasttravel.com</p>
+                <a href="https://t.me/elenahailu"><p className="ml-5">telegram</p></a>
               </div>
             </div>
           </div>

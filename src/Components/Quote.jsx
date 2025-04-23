@@ -9,8 +9,7 @@ const Quote = () => {
             Мы - Агентство путешествий “Крылья Эфиопии”
           </h1>
           <p className="pb-2 text-[14px] sm:text-[18px] text-Text1 font-light">
-            Мы можем организовать путешествие вашей мечты. Небольшая река под
-            названием Дуден протекает рядом с нами.
+            Мы можем организовать путешествие вашей мечты. 
           </p>
           {/* <button className="bg-Orange py-3 px-4 sm:py-5 sm:px-8 text-white font-semibold rounded-lg mt-3">
             Ask For A Quote
