@@ -79,7 +79,7 @@ const TourMain = () => {
         <Link to="/Axum">
           <Tour
             span=" $750/Person"
-            days="1-дневный тур"
+            days="3-дневный тур"
             place="Древний Аксум"
             icon1={<FaMapMarkerAlt />}
             location="Аксум, Эфиопия"
@@ -94,7 +94,7 @@ const TourMain = () => {
         <Link to="/ArbaMinch">
           <Tour
             span=" $750/Person"
-            days="1-дневный тур"
+            days="3-дневный тур"
             place="Арба Минч в Эфиопии "
             icon1={<FaMapMarkerAlt />}
             location="Арба Минч, Эфиопия"
