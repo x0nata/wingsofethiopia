@@ -20,12 +20,12 @@ const Description = () => {
   }, [isInView]);
 
   return (
-    <section className="container mx-auto p-5 mt-[200px] sm:mt-32 xl:mt-44">
-      <div className="flex flex-col-reverse lg:flex lg:flex-row items-center lg:space-x-24">
+    <section className="container mx-auto p-5 mt-[200px] sm:mt-32 xl:mt-44 relative">
+      <div className="flex flex-col-reverse lg:flex lg:flex-row items-center lg:space-x-24 relative">
         {/* Grid Section */}
         <motion.div
           ref={myRef}
-          className="mt-6 lg:mt-0 w-full lg:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-8"
+          className="mt-6 lg:mt-0 w-full lg:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-8 relative"
           initial="hidden"
           animate={mainControls}
           variants={variants}
@@ -72,7 +72,7 @@ const Description = () => {
 
         <motion.div
           ref={myRef}
-          className="w-full lg:w-[50%]"
+          className="w-full lg:w-[50%] relative"
           initial="hidden"
           animate={mainControls}
           variants={variants}
@@ -80,7 +80,7 @@ const Description = () => {
         >
           <div>
             <p className="text-Orange lg:text-[30px] italic py-5">
-              Добро пожаловать в агентство путешествий“Крылья Эфиопии
+              Добро пожаловать в агентство путешествий"Крылья Эфиопии
             </p>
           </div>
           <div>

@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa6";
 import { motion, useInView, useAnimation, useIsPresent } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const variants = {
@@ -55,9 +56,9 @@ const Footer = () => {
           <div className="lg:ml-10">
             <h1 className="text-[25px] font-bold">Информация</h1>
             <div className="text-DarkGray text-[18px] flex flex-col gap-7 mt-10">
-              <a href="#">Общие вопросы</a>
-              <a href="#">Условия бронирования</a>
-              <a href="#">Свяжитесь с нами</a>
+              <Link to="/Contact">Общие вопросы</Link>
+              <Link to="/Contact">Условия бронирования</Link>
+              <Link to="/Contact">Свяжитесь с нами</Link>
             </div>
           </div>
 
@@ -65,10 +66,10 @@ const Footer = () => {
           <div className="lg:ml-10">
             <h1 className="text-[25px] font-bold">Опыт</h1>
             <div className="text-DarkGray text-[18px] flex flex-col gap-7 mt-10">
-              <a href="/Destination">Отели и рестораны</a>
-              <a href="/Destination">Исторические места и достопримечательности</a>
-              <a href="/Destination">Природа</a>
-              <a href="/Destination">Культурные туры</a>
+              <Link to="/Destination">Отели и рестораны</Link>
+              <Link to="/Destination">Исторические места и достопримечательности</Link>
+              <Link to="/Destination">Природа</Link>
+              <Link to="/Destination">Культурные туры</Link>
             </div>
           </div>
 

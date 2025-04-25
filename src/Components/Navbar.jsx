@@ -60,9 +60,9 @@ const Navbar = () => {
         opacity: isVisible ? 1 : 0
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`container mx-auto p-5 pt-8 bg-Black lg:bg-Black/80 backdrop-blur-sm w-full z-[100] fixed top-0 left-0 right-0`}
+      className={`p-5 pt-8 bg-Black lg:bg-Black/80 backdrop-blur-sm w-full z-[100] fixed top-0 left-0 right-0`}
     >
-      <div className={` flex flex-row justify-between items-center`}>
+      <div className={`max-w-7xl mx-auto flex flex-row justify-between items-center`}>
         <div className="">
           <NavLink to="/" className="hover:text-Orange transition-colors duration-300">
             <p className="text-white font-bold text-3xl">Крылья Эфиопии</p>

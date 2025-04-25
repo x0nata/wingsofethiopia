@@ -23,9 +23,9 @@ const About = () => {
     }
   }, [isInView]);
   return (
-    <section>
-      <div className="my-16">
-        <img className="absolute w-full h-[35rem]" src={Bg4} />
+    <section className="relative">
+      <div className="my-16 relative">
+        <img className="absolute w-full h-[35rem] object-cover" src={Bg4} />
         {/* <div className="relative flex items-center justify-center top-[250px]">
           <button className="bg-white rounded-full p-8 ">
             <FaPlay className="text-Orange w-[40px] h-[40px]" />
@@ -33,10 +33,10 @@ const About = () => {
         </div> */}
       </div>
 
-      <div className="container mx-auto ">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-10 lg:justify-between">
-          <div className="mx-5 z-50 mt-[350px] bg-white p-5 shadow-xl">
-            <img className="h-[460px] lg:h-[640px] w-[1400px]" src={AboutImg} />
+      <div className="container mx-auto relative">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-10 lg:justify-between relative">
+          <div className="mx-5 z-50 mt-[350px] bg-white p-5 shadow-xl relative">
+            <img className="h-[460px] lg:h-[640px] w-full object-cover" src={AboutImg} />
           </div>
           <motion.div
             ref={myRef}
@@ -44,7 +44,7 @@ const About = () => {
             animate={mainControls}
             variants={variants}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="z-50 lg:mt-[500px] pt-10 px-5 lg:px-0"
+            className="z-50 lg:mt-[500px] pt-10 px-5 lg:px-0 relative"
           >
             <span className="text-[30px] text-Orange my-4 italic">О нас</span>
             <h1 className="text-[30px] sm:text-[40px] font-semibold mb-5">

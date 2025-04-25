@@ -19,17 +19,17 @@ const Hero = () => {
   }, [isInView]);
 
   return (
-    <section className="container mx-auto p-5 pt-40 lg:pt-36">
-      <div className="flex flex-col-reverse lg:flex lg:flex-row justify-between lg:items-center">
+    <section className="container mx-auto p-5 pt-40 lg:pt-36 relative">
+      <div className="flex flex-col-reverse lg:flex lg:flex-row justify-between lg:items-center gap-8">
         {/* Text Hero */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={variants}
           transition={{ duration: 0.8 }}
-          className="lg:w-1/2"
+          className="lg:w-1/2 relative z-10"
         >
-          <div className="mt-24 lg:mt-36">
+          <div className="mt-32 lg:mt-50">
             <p className="text-Orange text-xl lg:text-[30px] italic py-3 lg:py-5 px-0 lg:px-4">
               Добро пожаловать в агентство путешествий"Крылья Эфиопии"
             </p>
