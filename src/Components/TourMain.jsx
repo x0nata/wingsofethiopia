@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 import Tour from "./Tour";
 import { FaMapMarkerAlt, FaBed, FaMountain, FaBath } from "react-icons/fa";
 import { motion, useInView, useAnimation, useIsPresent } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
 
 const TourMain = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0 },
@@ -33,11 +38,11 @@ const TourMain = () => {
       >
         <Link to="/AddisIT">
           <Tour
-            span=" $450/Person"
-            days="5-дневный тур"
-            place="Маршрут по Аддис Абебе"
+            span={t.addisTour.price}
+            days={t.addisTour.days}
+            place={t.addisTour.title}
             icon1={<FaMapMarkerAlt />}
-            location="Аддис-Абеба, Эфиопия"
+            location={t.addisTour.location}
             // icon2={<FaBath />}
             // no1="2"
             // icon3={<FaBed />}
@@ -48,11 +53,11 @@ const TourMain = () => {
         </Link>
         <Link to="/Addis1">
           <Tour
-            span=" $100/Person"
-            days="1-дневный тур"
-            place="Энтото"
+            span={t.entotoTour.price}
+            days={t.entotoTour.days}
+            place={t.entotoTour.title}
             icon1={<FaMapMarkerAlt />}
-            location="Аддис-Абеба, Эфиопия"
+            location={t.entotoTour.location}
             // icon2={<FaBath />}
             // no1="2"
             // icon3={<FaBed />}
@@ -63,11 +68,11 @@ const TourMain = () => {
         </Link>
         <Link to="/Addis">
           <Tour
-            span=" $125/Person"
-            days="1-дневный тур"
-            place="Однодневный маршрут по Аддис Абебе"
+            span={t.addisDayTour.price}
+            days={t.addisDayTour.days}
+            place={t.addisDayTour.title}
             icon1={<FaMapMarkerAlt />}
-            location="Аддис-Абеба, Эфиопия"
+            location={t.addisDayTour.location}
             // icon2={<FaBath />}
             // no1="2"
             // icon3={<FaBed />}
@@ -78,11 +83,11 @@ const TourMain = () => {
         </Link>
         <Link to="/Axum">
           <Tour
-            span=" $750/Person"
-            days="3-дневный тур"
-            place="Древний Аксум"
+            span={t.axumTour.price}
+            days={t.axumTour.days}
+            place={t.axumTour.title}
             icon1={<FaMapMarkerAlt />}
-            location="Аксум, Эфиопия"
+            location={t.axumTour.location}
             // icon2={<FaBath />}
             // no1="2"
             // icon3={<FaBed />}
@@ -93,11 +98,11 @@ const TourMain = () => {
         </Link>
         <Link to="/ArbaMinch">
           <Tour
-            span=" $750/Person"
-            days="3-дневный тур"
-            place="Арба Минч в Эфиопии "
+            span={t.arbaMinchTour.price}
+            days={t.arbaMinchTour.days}
+            place={t.arbaMinchTour.title}
             icon1={<FaMapMarkerAlt />}
-            location="Арба Минч, Эфиопия"
+            location={t.arbaMinchTour.location}
             // icon2={<FaBath />}
             // no1="2"
             // icon3={<FaBed />}

@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useCallback } from "react";
-import Navbar from "../Components/Navbar";
 import TourHero from "../Components/TourHero";
 import Footer from "../Components/Footer";
 import I18 from "../assets/I18.jpg";
@@ -10,8 +9,13 @@ import I15 from "../assets/I15.jpg";
 import I14 from "../assets/I14.jpg";
 import I13 from "../assets/I13.jpg";
 import { FaTelegram } from "react-icons/fa6";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations_new";
 
 const ArbaMinch = () => {
+  const { language } = useLanguage();
+  const t = translations[language].pages.arbaMinchTour;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -78,13 +82,12 @@ const ArbaMinch = () => {
 
   return (
     <section className="sec2">
-      <Navbar />
       <TourHero />
       <div className="container mx-auto rounded-xl shadow-md py-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-Black text-4xl md:text-5xl font-bold text-center pb-8 bg-gradient-to-r from-Orange to-amber-500 bg-clip-text text-transparent">
-          Арба Минч
+          {t.title}
           <span className="block text-2xl md:text-3xl mt-2 text-gray-600 font-normal">
-            Город Сорока Источников
+            {t.subtitle}
           </span>
         </h1>
 
@@ -178,41 +181,37 @@ const ArbaMinch = () => {
         {/* Description Section with enhanced styling */}
         <div className="sm:mt-12 p-5 space-y-8">
           <div className="bg-gradient-to-r from-white to-orange-50 rounded-xl p-8 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-Orange mb-4">Быстрый перелет в джунгли</h2>
+            <h2 className="text-2xl font-bold text-Orange mb-4">{t.quickFlight.title}</h2>
             <p className="sm:text-lg text-gray-800 leading-relaxed">
-              Всего 50 минут на самолете Эфиопских Авиалиний – и Вы в джунглях на
-              юге страны в городе Арба Минч (Сорок Источников)
+              {t.quickFlight.description}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-orange-50 to-white rounded-xl p-8 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-Orange mb-4">Природное богатство</h2>
+            <h2 className="text-2xl font-bold text-Orange mb-4">{t.naturalWealth.title}</h2>
             <p className="sm:text-lg text-gray-800 leading-relaxed">
-              Увидите настоящие джунгли с их богатой флорой и фауной
+              {t.naturalWealth.description}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-white to-orange-50 rounded-xl p-8 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-Orange mb-4">Озеро Чамо</h2>
+            <h2 className="text-2xl font-bold text-Orange mb-4">{t.lakeChamo.title}</h2>
             <p className="sm:text-lg text-gray-800 leading-relaxed">
-              Совершите лодочную прогулку по озеру Чамо для наблюдения за
-              крокодилами и бегемотами
+              {t.lakeChamo.description}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-orange-50 to-white rounded-xl p-8 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-Orange mb-4">Народ Дорзе</h2>
+            <h2 className="text-2xl font-bold text-Orange mb-4">{t.dorzePeople.title}</h2>
             <p className="sm:text-lg text-gray-800 leading-relaxed">
-              Посетите народ Дорзе известного своими уникальными навыками
-              ткачества и традиционными домами в виде головы слона
+              {t.dorzePeople.description}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-white to-orange-50 rounded-xl p-8 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-Orange mb-4">Чудо-дерево Моринга</h2>
+            <h2 className="text-2xl font-bold text-Orange mb-4">{t.moringaTree.title}</h2>
             <p className="sm:text-lg text-gray-800 leading-relaxed">
-              Здесь культивируют морингу которую называют "чудо-деревом" из-за ее
-              полезных свойств для здоровья
+              {t.moringaTree.description}
             </p>
           </div>
         </div>
@@ -222,9 +221,9 @@ const ArbaMinch = () => {
           <div className="bg-gradient-to-r from-Orange to-amber-500 rounded-2xl p-8 text-white shadow-xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold">Цена:</span>
-                <span className="text-3xl font-bold">750 USD</span>
-                <span className="text-lg">per person</span>
+                <span className="text-2xl font-bold">{t.price}</span>
+                <span className="text-3xl font-bold">{t.priceValue}</span>
+                <span className="text-lg">{t.perPerson}</span>
               </div>
               <a 
                 href="https://t.me/elenahailu" 
@@ -233,16 +232,16 @@ const ArbaMinch = () => {
                 className="inline-flex items-center justify-center gap-2 bg-white text-Orange px-6 py-3 text-lg rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
               >
                 <FaTelegram className="text-xl" />
-                <span>Поговорите с нашим агентом по бронированию</span>
+                <span>{t.bookNow}</span>
               </a>
             </div>
             <div className="mt-8">
               <div className="bg-white/20 rounded-xl p-6 backdrop-blur-sm">
                 <p className="text-lg">
-                  Отдельно оплачиваются билеты местных авиалиний:
+                  {t.additionalFees}
                   <ul className="list-disc list-inside mt-2 space-y-1">
-                    <li>~190 USD если прилетели в страну Эфиопскими авиалиниями</li>
-                    <li>~265 USD если другой авиакомпанией</li>
+                    <li>{t.ethiopianAirlines}</li>
+                    <li>{t.otherAirlines}</li>
                   </ul>
                 </p>
               </div>

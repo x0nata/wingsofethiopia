@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useCallback } from "react";
-import Navbar from "../Components/Navbar";
 import TourHero from "../Components/TourHero";
 import Footer from "../Components/Footer";
 import I25 from "../assets/I25.jpg";
@@ -8,8 +7,13 @@ import I24 from "../assets/I24.jpg";
 import I6 from "../assets/I6.jpg";
 import I8 from "../assets/I8.jpg";
 import { FaTelegram } from "react-icons/fa6";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
 
 const AddisIT = () => {
+  const { language } = useLanguage();
+  const t = translations[language].pages.addisTour;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -68,11 +72,10 @@ const AddisIT = () => {
 
   return (
     <section className="sec2">
-      <Navbar />
       <TourHero />
       <div className="container mx-auto rounded-xl shadow-md py-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-Black text-4xl md:text-5xl font-bold text-center pb-8 bg-gradient-to-r from-Orange to-amber-500 bg-clip-text text-transparent">
-          Маршрут по Аддис Абебе
+          {t.title}
         </h1>
 
         {/* Image Section with enhanced styling */}
@@ -167,54 +170,36 @@ const AddisIT = () => {
           {/* Day sections with enhanced styling */}
           <div className="bg-gradient-to-r from-white to-orange-50 rounded-xl p-6 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
             <p className="sm:text-lg px-2 sm:px-5 font-light text-Black text-justify">
-              <span className="text-Orange font-bold text-xl block mb-3">День 1</span>
-              Утренний прилет в Аддис Абебу. Заселение в гостиницу в центре города,
-              небольшой отдых. После обеда пешая прогулка по центру столицы,
-              знакомство с кухней Эфиопии.
+              <span className="text-Orange font-bold text-xl block mb-3">{t.dayTitles.day1}</span>
+              {t.day1}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-orange-50 to-white rounded-xl p-6 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
             <p className="sm:text-lg px-2 sm:px-5 font-light text-Black text-justify">
-              <span className="text-Orange font-bold text-xl block mb-3">День 2</span>
-              Посещение Юнити парка где находятся 2 дворца и зоопарк. Обед в эфиопском
-              ресторане с самостоятельным приготовлением инжеры, Кофейная церемония.
-              Пешая прогулка до главной площади Мескаль, по дороге посещение церкви
-              Святого Стефана. Посещение Музея Аддис Абебы, находящегося в
-              историческом здании. Ужин в близлежащем ресторане Union с прекрасным
-              видом на площадь Мескаль.
+              <span className="text-Orange font-bold text-xl block mb-3">{t.dayTitles.day2}</span>
+              {t.day2}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-white to-orange-50 rounded-xl p-6 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
             <p className="sm:text-lg px-2 sm:px-5 font-light text-Black text-justify">
-              <span className="text-Orange font-bold text-xl block mb-3">День 3</span>
-              Знакомство с горой Ентото находящейся на высоте 3100 м. Посещение
-              старого дворца Императора Менелика, музея (здесь находится икона
-              которую Император Российской Империи подарил Менелику на коронацию),
-              церкви Святой Марии, построенной императрицей Таиту и церкви Рагуила,
-              построенной императором Менеликом. Прогулка по эвкалиптовому парку.
+              <span className="text-Orange font-bold text-xl block mb-3">{t.dayTitles.day3}</span>
+              {t.day3}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-orange-50 to-white rounded-xl p-6 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
             <p className="sm:text-lg px-2 sm:px-5 font-light text-Black text-justify">
-              <span className="text-Orange font-bold text-xl block mb-3">День 4</span>
-              Посещение Дворца Ганната Леуль – Рай для принца, этнографического
-              музея. Посещения Собора Святой Троицы где похоронен последний
-              эфиопский император и Михаил Бабичев.
+              <span className="text-Orange font-bold text-xl block mb-3">{t.dayTitles.day4}</span>
+              {t.day4}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-white to-orange-50 rounded-xl p-6 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
             <p className="sm:text-lg px-2 sm:px-5 font-light text-Black text-justify">
-              <span className="text-Orange font-bold text-xl block mb-3">День 5</span>
-              Посещение Собора Святого Георгия, где находятся колокол и иконы из
-              России, мастерской где пишут иконы и церковные книги, первого ж/д
-              вокзала в Аддис Абебе, знакомство с игрой карамбола, ознакомление с
-              2мя памятниками львов, являющихся визитной карточкой города. После
-              обеда – покупка сувениров и по желанию местных кожаных изделий.
-              Вечерний вылет на Родину.
+              <span className="text-Orange font-bold text-xl block mb-3">{t.dayTitles.day5}</span>
+              {t.day5}
             </p>
           </div>
         </div>
@@ -224,9 +209,8 @@ const AddisIT = () => {
           <div className="bg-gradient-to-r from-Orange to-amber-500 rounded-2xl p-8 text-white shadow-xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold">Цена:</span>
-                <span className="text-3xl font-bold">125 USD</span>
-                <span className="text-lg">per person</span>
+                <span className="text-2xl font-bold">{t.price}</span>
+                <span className="text-lg">{t.perPerson}</span>
               </div>
               <a 
                 href="https://t.me/elenahailu" 
@@ -235,13 +219,12 @@ const AddisIT = () => {
                 className="inline-flex items-center justify-center gap-2 bg-white text-Orange px-6 py-3 text-lg rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
               >
                 <FaTelegram className="text-xl" />
-                <span>Поговорите с нашим агентом по бронированию</span>
+                <span>{t.bookNow}</span>
               </a>
             </div>
             <div className="mt-6 text-lg">
               <p className="opacity-90">
-                В стоимость включен транспорт, услуги русскоговорящего гида, входные
-                билеты
+                {t.included}
               </p>
             </div>
           </div>

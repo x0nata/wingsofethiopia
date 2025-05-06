@@ -1,19 +1,23 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { FaExclamationTriangle } from "react-icons/fa";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
 
 const NotFoundPage = () => {
+  const { language } = useLanguage();
+  const t = translations[language].pages.notFound;
+
   return (
-    <section className="text-center flex flex-col justify-center items-center h-96">
-      <FaExclamationTriangle className="text-yellow-400 text-6xl mb-4" />
-      <h1 className="text-6xl font-bold mb-4">404 Not Found</h1>
-      <p className="text-xl mb-5">This page does not exist</p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-Black text-white">
+      <h1 className="text-4xl font-bold mb-4">{t.title}</h1>
+      <p className="text-xl mb-8">{t.description}</p>
       <Link
         to="/"
-        className="text-white bg-indigo-700 hover:bg-indigo-900 rounded-md px-3 py-2 mt-4"
+        className="bg-Orange text-white px-6 py-3 rounded-md hover:bg-Orange/80 transition-colors"
       >
-        Go Back
+        {t.goHome}
       </Link>
-    </section>
+    </div>
   );
 };
 

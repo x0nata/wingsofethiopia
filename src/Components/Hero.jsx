@@ -1,5 +1,8 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
+import bgImage from "../assets/bg_5.jpg";
 // import { FaPlay } from "react-icons/fa";
 
 const Hero = () => {
@@ -16,44 +19,52 @@ const Hero = () => {
     if (isInView) {
       mainControls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, mainControls]);
+
+  const { language } = useLanguage();
+  const t = translations[language];
 
   return (
-    <section className="container mx-auto p-5 pt-40 lg:pt-36 relative">
-      <div className="flex flex-col-reverse lg:flex lg:flex-row justify-between lg:items-center gap-8">
-        {/* Text Hero */}
+    <section
+      ref={myRef}
+      className="relative w-full min-h-screen flex items-center justify-start overflow-hidden bg-black"
+    >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+        aria-hidden="true"
+      ></div>
+      {/* Hero Content */}
+      <div className="container mx-auto px-6 py-24 lg:py-36 flex flex-col items-start relative z-10 max-w-4xl">
         <motion.div
           initial="hidden"
-          animate="visible"
+          animate={mainControls}
           variants={variants}
           transition={{ duration: 0.8 }}
-          className="lg:w-1/2 relative z-10"
+          className="w-full"
         >
-          <div className="mt-32 lg:mt-50">
-            <p className="text-Orange text-xl lg:text-[30px] italic py-3 lg:py-5 px-0 lg:px-4">
-              Добро пожаловать в агентство путешествий"Крылья Эфиопии"
-            </p>
-          </div>
-          <div className="px-0 lg:px-4">
-            <h1 className="text-white text-3xl lg:text-[55px] font-extrabold lg:w-[65%] pb-4">
-              Откройте для себя Эфиопию вместе с нами
-            </h1>
-            <p className="text-white text-base lg:text-[20px] font-light">
-              Прикоснитесь к сердцу Эфиопии и откройте для себя ее богатейшую
-              историю и восхитительные пейзажи
-            </p>
-          </div>
+          <p className="text-Orange text-xl lg:text-3xl italic mb-6 font-medium">
+            {t.heroWelcome}
+          </p>
+          <h1 className="text-white text-5xl lg:text-7xl font-extrabold mb-8 leading-tight">
+            {t.heroTitle}
+          </h1>
+          <p className="text-white text-lg lg:text-xl font-light mb-10 max-w-2xl">
+            {t.heroDescription}
+          </p>
+          <a
+            href="#contact"
+            className="inline-block bg-Orange text-white font-semibold px-10 py-4 rounded-full text-xl hover:bg-orange-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          >
+            {t.heroButton}
+          </a>
         </motion.div>
-
-        {/* Video Icon */}
-        {/* <div>
-          <button className="p-4 lg:p-8 rounded-full bg-white flex justify-center items-center">
-            <FaPlay
-              className="lg:w-[40px] lg:h-[40px] text-Orange
-            "
-            />
-          </button>
-        </div> */}
       </div>
     </section>
   );

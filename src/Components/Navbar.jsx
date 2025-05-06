@@ -3,13 +3,19 @@ import { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
+import MobileDrawer from "./MobileDrawer";
 
-const Navbar = () => {
+const Navbar = ({ onMobileMenuOpen }) => {
   const [toggle, setToggle] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const navRef = useRef(null);
   const lastScrollY = useRef(0);
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language];
 
   const handleSelection = () => {
     setDropdownOpen(false);
@@ -26,12 +32,19 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      if (currentScrollY > lastScrollY.current) {
-        // Scrolling down
-        setIsVisible(false);
-      } else {
-        // Scrolling up
+      // Always show navbar at the top of the page
+      if (currentScrollY === 0) {
         setIsVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      // Show navbar when scrolling up
+      if (currentScrollY < lastScrollY.current) {
+        setIsVisible(true);
+      } else {
+        // Hide navbar when scrolling down
+        setIsVisible(false);
       }
       
       lastScrollY.current = currentScrollY;
@@ -60,28 +73,28 @@ const Navbar = () => {
         opacity: isVisible ? 1 : 0
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`p-5 pt-8 bg-Black lg:bg-Black/80 backdrop-blur-sm w-full z-[100] fixed top-0 left-0 right-0`}
+      className={`p-5 pt-8 bg-Black lg:bg-Black/80 backdrop-blur-sm w-full z-[100] fixed top-0 left-0 right-0 transition-all duration-300 sm:p-5 sm:pt-8 p-3 pt-4`}
     >
       <div className={`max-w-7xl mx-auto flex flex-row justify-between items-center`}>
-        <div className="">
+        <div className="z-50">
           <NavLink to="/" className="hover:text-Orange transition-colors duration-300">
-            <p className="text-white font-bold text-3xl">Крылья Эфиопии</p>
-            <span className="block text-Orange text-base font-semibold">
-              Агентство путешествий
+            <p className="text-white font-bold text-2xl sm:text-3xl text-xl">{t.agencyTitle}</p>
+            <span className="block text-Orange text-sm sm:text-base text-xs font-semibold">
+              {t.travelAgency}
             </span>
           </NavLink>
         </div>
         <div className="hidden lg:flex lg:flex-row justify-between gap-12">
           <NavLink className={LinkClass} to="/">
-            Главная страница
+            {t.home}
           </NavLink>
           {/* <NavLink className={LinkClass} to="/About">
             О нас
           </NavLink> */}
 
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-2 relative">
             <NavLink className={LinkClass} to="/Destination">
-              Наши туры
+              {t.tours}
             </NavLink>
             <button
               onClick={(e) => {
@@ -108,151 +121,75 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="fixed top-24 transform -translate-x-[20%] w-52 bg-white text-black shadow-lg rounded-lg overflow-hidden z-50"
+                className="absolute top-[100%] left-0 w-64 bg-Black/95 backdrop-blur-sm text-white shadow-xl rounded-lg overflow-hidden z-50 mt-2"
               >
                 <NavLink
                   onClick={handleSelection}
                   to="/AddisIT"
-                  className="block px-4 py-2 hover:bg-gray-200"
+                  className="block px-6 py-3 hover:bg-Orange/10 hover:text-Orange transition-colors duration-200"
                 >
-                  Маршрут по Аддис
+                  {t.addisRoute}
                 </NavLink>
                 <NavLink
                   onClick={handleSelection}
                   to="/Addis1"
-                  className="block px-4 py-2 hover:bg-gray-200"
+                  className="block px-6 py-3 hover:bg-Orange/10 hover:text-Orange transition-colors duration-200"
                 >
-                  Энтото
+                  {t.entoto}
                 </NavLink>
                 <NavLink
                   onClick={handleSelection}
                   to="/Addis"
-                  className="block px-4 py-2 hover:bg-gray-200"
+                  className="block px-6 py-3 hover:bg-Orange/10 hover:text-Orange transition-colors duration-200"
                 >
-                  Однодневный маршрут по Аддис
+                  {t.addisDayRoute}
                 </NavLink>
                 <NavLink
                   onClick={handleSelection}
                   to="/Axum"
-                  className="block px-4 py-2 hover:bg-gray-200"
+                  className="block px-6 py-3 hover:bg-Orange/10 hover:text-Orange transition-colors duration-200"
                 >
-                  Древний Аксум
+                  {t.ancientAxum}
                 </NavLink>
                 <NavLink
                   onClick={handleSelection}
                   to="/ArbaMinch"
-                  className="block px-4 py-2 hover:bg-gray-200"
+                  className="block px-6 py-3 hover:bg-Orange/10 hover:text-Orange transition-colors duration-200"
                 >
-                  Арба Минч
+                  {t.arbaMinch}
                 </NavLink>
               </motion.div>
             )}
           </div>
 
-          <NavLink className={LinkClass} to="/Contact">
-            Контакты
-          </NavLink>
+          <div className="flex items-center gap-4">
+           
+            <NavLink className={LinkClass} to="/Contact" onClick={handleSelection}>
+              {t.contact}
+            </NavLink>
+           
+          </div>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="text-white hover:text-Orange transition-colors duration-300"
+            >
+              {language === 'ru' ? 'EN' : 'RU'}
+            </button>
+         </div>
         </div>
 
         {/* Mobile Navigation */}
-
         <div className="lg:hidden">
           <button
             className="text-Orange text-2xl "
-            onClick={() => setToggle(!toggle)}
+            onClick={() => {
+              console.log("Hamburger clicked");
+              onMobileMenuOpen();
+            }}
           >
-            {toggle ? <FaTimes /> : <FaBars />}
+            <FaBars />
           </button>
-
-          <div
-            className={`${
-              toggle ? "block" : "hidden"
-            } z-40 fixed top-28 w-full left-0 bg-Black`}
-          >
-            <div className="flex flex-col mx-5 py-6 space-y-4 text-base text-white">
-              <NavLink className={LinkClass} to="/">
-                Главная страница
-              </NavLink>
-              {/* <NavLink className={LinkClass} to="/About">
-                О нас
-              </NavLink> */}
-
-              <div className="flex items-center gap-2">
-                <NavLink className={LinkClass} to="/Destination">
-                  Наши туры
-                </NavLink>
-
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setDropdownOpen(!dropdownOpen);
-                  }}
-                >
-                  {dropdownOpen ? (
-                    <IoIosArrowUp
-                      className="text-white font-bold cursor-pointer"
-                      size={16}
-                    />
-                  ) : (
-                    <IoIosArrowDown
-                      className="text-white font-bold cursor-pointer"
-                      size={16}
-                    />
-                  )}
-                </button>
-
-                {dropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                    className="fixed top-24 transform -translate-x-[20%] w-52 bg-white text-black shadow-lg rounded-lg overflow-hidden z-50"
-                  >
-                    <NavLink
-                      onClick={handleSelection}
-                      to="/AddisIT"
-                      className="block px-4 py-2 hover:bg-gray-200"
-                    >
-                      Маршрут по Аддис
-                    </NavLink>
-                    <NavLink
-                      onClick={handleSelection}
-                      to="/Addis1"
-                      className="block px-4 py-2 hover:bg-gray-200"
-                    >
-                      Энтото
-                    </NavLink>
-                    <NavLink
-                      onClick={handleSelection}
-                      to="/Addis"
-                      className="block px-4 py-2 hover:bg-gray-200"
-                    >
-                      Однодневный маршрут по Аддис
-                    </NavLink>
-                    <NavLink
-                      onClick={handleSelection}
-                      to="/Axum"
-                      className="block px-4 py-2 hover:bg-gray-200"
-                    >
-                      Древний Аксум
-                    </NavLink>
-                    <NavLink
-                      onClick={handleSelection}
-                      to="/ArbaMinch"
-                      className="block px-4 py-2 hover:bg-gray-200"
-                    >
-                      Арба Минч
-                    </NavLink>
-                  </motion.div>
-                )}
-              </div>
-
-              <NavLink className={LinkClass} to="/Contact">
-                Контакты
-              </NavLink>
-            </div>
-          </div>
         </div>
       </div>
     </motion.section>

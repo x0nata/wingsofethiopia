@@ -1,14 +1,18 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useCallback } from "react";
-import Navbar from "../Components/Navbar";
 import TourHero from "../Components/TourHero";
 import Footer from "../Components/Footer";
 import I11 from "../assets/I11.jpg";
 import I5 from "../assets/I5.jpg";
 import I2 from "../assets/I2.jpg";
 import { FaTelegram } from "react-icons/fa6";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
 
 const Addis = () => {
+  const { language } = useLanguage();
+  const t = translations[language].pages.addisDayTour;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -63,14 +67,10 @@ const Addis = () => {
 
   return (
     <section className="sec2">
-      <Navbar />
       <TourHero />
       <div className="container mx-auto rounded-xl shadow-md py-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-Black text-4xl md:text-5xl font-bold text-center pb-8 bg-gradient-to-r from-Orange to-amber-500 bg-clip-text text-transparent">
-          Однодневный маршрут
-          <span className="block text-2xl md:text-3xl mt-2 text-gray-600 font-normal">
-            Знакомство с Аддис Абебой
-          </span>
+          {t.title}
         </h1>
 
         {/* Image Section with enhanced styling */}
@@ -163,30 +163,27 @@ const Addis = () => {
         {/* Description Section with enhanced styling */}
         <div className="sm:mt-12 p-5 space-y-8">
           <div className="bg-gradient-to-r from-white to-orange-50 rounded-xl p-8 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-Orange mb-4">Дворцы и парки</h2>
-            <p className="sm:text-lg text-gray-800 leading-relaxed">
-              В Аддис Абебе есть несколько дворцов. Посетив Парк Юнити можно
-              увидеть Дворец Императоров Менелика, Хайле Селасе и зоопарк где
-              животные содержатся в условиях максимально приближенных к их среде
-              обитания.
-            </p>
+            <ul className="list-disc pl-4">
+              <h2 className="text-2xl font-bold text-Orange mb-4">{t.palacesAndParks.title}</h2>
+              <p className="sm:text-lg text-gray-800 leading-relaxed">
+                {t.palacesAndParks.description}
+              </p>
+            </ul>
           </div>
 
           <div className="bg-gradient-to-r from-orange-50 to-white rounded-xl p-8 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-Orange mb-4">Музей и площадь</h2>
-            <p className="sm:text-lg text-gray-800 leading-relaxed">
-              Музей Аддис Абебы на главной площади столицы Мескаль
-              содержит интересную экспозицию о развитии города.
-            </p>
+            <ul className="list-disc pl-4">
+              <h2 className="text-2xl font-bold text-Orange mb-4">{t.museumAndSquare.title}</h2>
+              <p className="sm:text-lg text-gray-800 leading-relaxed">
+                {t.museumAndSquare.description}
+              </p>
+            </ul>
           </div>
 
           <div className="bg-gradient-to-r from-white to-orange-50 rounded-xl p-8 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-            <h2 className="text-2xl font-bold text-Orange mb-4">Православные святыни</h2>
+            <h2 className="text-2xl font-bold text-Orange mb-4">{t.orthodoxShrines.title}</h2>
             <p className="sm:text-lg text-gray-800 leading-relaxed">
-              В Аддис Абебе есть несколько православных церквей и соборов. Наиболее интересные –
-              Собор Святого Георгия, построенный в честь победы над итальянцами в
-              1898 году и Собор Святой Троицы где похоронен последний император
-              Эфиопии Хайле Селасе и его супруга Императрица Менен.
+              {t.orthodoxShrines.description}
             </p>
           </div>
         </div>
@@ -196,8 +193,7 @@ const Addis = () => {
           <div className="bg-gradient-to-r from-Orange to-amber-500 rounded-2xl p-8 text-white shadow-xl">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <div className="flex items-center gap-3">
-                <span className="text-2xl font-bold">Цена:</span>
-                <span className="text-3xl font-bold">125 USD</span>
+                <span className="text-2xl font-bold">{t.price}</span>
                 <span className="text-lg">per person</span>
               </div>
               <a 
@@ -207,13 +203,12 @@ const Addis = () => {
                 className="inline-flex items-center justify-center gap-2 bg-white text-Orange px-6 py-3 text-lg rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
               >
                 <FaTelegram className="text-xl" />
-                <span>Поговорите с нашим агентом по бронированию</span>
+                <span>{t.bookNow}</span>
               </a>
             </div>
             <div className="mt-8">
               <p className="opacity-90 text-lg">
-                В стоимость включен транспорт, услуги русскоговорящего гида, входные
-                билеты
+                {t.priceIncluded}
               </p>
             </div>
           </div>

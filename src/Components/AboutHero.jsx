@@ -1,8 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView, useAnimation, useIsPresent } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
 
 const AboutHero = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0 },
@@ -31,10 +36,10 @@ const AboutHero = () => {
           to="/"
           className="inline-block mr-5 hover:text-Orange ease-in-out duration-300"
         >
-          Home {">"}
+          {t.home} {">"}
         </Link>
-        <p className="inline-block">About Solast Travel & Tour Agency {">"}</p>
-        <p className="text-[54px] mt-5 font-bold">About Us</p>
+        <p className="inline-block">{t.aboutAgency} {">"}</p>
+        <p className="text-[54px] mt-5 font-bold">{t.aboutAgencyTitle}</p>
       </motion.div>
     </section>
   );

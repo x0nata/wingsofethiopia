@@ -6,8 +6,13 @@ import AboutImg from "../assets/about-1.jpg";
 import { FaPlay } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
 
 const About = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0 },

@@ -7,8 +7,11 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@assets': path.resolve(__dirname, './src/assets')
+      '@': path.resolve(process.cwd(), './src'),
+      '@assets': path.resolve(process.cwd(), './src/assets')
     }
+  },
+  server: {
+    historyApiFallback: true // Redirect all routes to index.html for React Router
   }
 })

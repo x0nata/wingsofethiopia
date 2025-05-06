@@ -9,11 +9,35 @@ import Addis1 from "./Pages/Addis1";
 import AddisIT from "./Pages/AddisIT";
 import ArbaMinch from "./Pages/ArbaMinch";
 import Axum from "./Pages/Axum";
+import { LanguageProvider } from "./context/LanguageContext";
+import SEO from "./Components/SEO";
+import MobileDrawer from "./Components/MobileDrawer";
+import { useState, useEffect } from "react";
+import Navbar from "./Components/Navbar";
+import DrawerContent from "./Components/DrawerContent";
 
 const App = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // Close drawer when route changes
+  useEffect(() => {
+    setDrawerOpen(false);
+  }, [window.location.pathname]);
+
+  const handleDrawerOpen = () => {
+    setDrawerOpen(true);
+  };
+
+  const handleDrawerClose = () => setDrawerOpen(false);
+
   return (
-    <>
+    <LanguageProvider>
+      <SEO />
       <Router>
+        <Navbar onMobileMenuOpen={handleDrawerOpen} />
+        <MobileDrawer open={drawerOpen} onClose={handleDrawerClose}>
+          <DrawerContent onClose={handleDrawerClose} />
+        </MobileDrawer>
         <Routes>
           <Route path="/" element={<HomePage />} />
           {/* <Route path="/About" element={<AboutPage />} /> */}
@@ -27,7 +51,7 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
-    </>
+    </LanguageProvider>
   );
 };
 
