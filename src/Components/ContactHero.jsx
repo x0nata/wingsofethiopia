@@ -33,16 +33,6 @@ const ContactHero = () => {
         transition={{ duration: 0.8, delay: 0.25 }}
         className="text-center z-[2] mt-[100px] sm:mt-[150px]"
       >
-        <div className="flex items-center justify-center space-x-4 text-white/80 text-lg mb-6">
-          <Link
-            to="/"
-            className="hover:text-Orange transition-colors duration-300"
-          >
-            {t.home}
-          </Link>
-          <span className="text-Orange">/</span>
-          <span className="text-Orange">{t.contact}</span>
-        </div>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
           {t.contactTitle}
         </h1>
