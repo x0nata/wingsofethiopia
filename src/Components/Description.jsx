@@ -96,7 +96,7 @@ const Description = () => {
           <div>
             <Link to="/destination">
               <button className="mt-5 px-6 py-4 border-0 bg-Orange text-white text-lg rounded-lg hover:shadow-lg duration-300 ease-in-out">
-                Найти направление
+                {t.findDestination}
               </button>
             </Link>
           </div>

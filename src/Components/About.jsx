@@ -51,19 +51,17 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="z-50 lg:mt-[500px] pt-10 px-5 lg:px-0 relative"
           >
-            <span className="text-[30px] text-Orange my-4 italic">О нас</span>
+            <span className="text-[30px] text-Orange my-4 italic">{t.aboutAgency}</span>
             <h1 className="text-[30px] sm:text-[40px] font-semibold mb-5">
-              Сделайте свой тур по Эфиопии незабываемым и безопасным с нами
+              {t.aboutTitle}
             </h1>
-            <p className=" sm:text-[18px] text-DarkGray lg:pr-5">
-              Откройте для себя чудеса Эфиопии с Агентством Крылья Эфиопии. От
-              древних церквей и монастырей до захватывающих дух пейзажей — мы
-              гарантируем, что ваше путешествие станет незабываемым.
+            <p className="sm:text-[18px] text-DarkGray lg:pr-5">
+              {t.aboutDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <Link to="/Destination" className="w-full sm:w-auto">
                 <button className="w-full sm:w-auto bg-Orange px-5 py-3 sm:py-4 sm:px-7 text-white lg:text-lg rounded-lg hover:shadow-lg duration-300 ease-in-out whitespace-nowrap">
-                  Забронируйте свое эфиопское приключение
+                  {t.bookAdventure}
                 </button>
               </Link>
               <a 
@@ -73,7 +71,7 @@ const About = () => {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-Orange px-5 py-3 sm:py-4 sm:px-7 text-white lg:text-lg rounded-lg hover:shadow-lg duration-300 ease-in-out whitespace-nowrap"
               >
                 <FaTelegram className="text-xl" />
-                <span>Узнайте больше о Эфиопии</span>
+                <span>{t.learnMoreEthiopia}</span>
               </a>
             </div>
           </motion.div>

@@ -57,6 +57,7 @@ export const translations = {
     send: "Отправить",
     submit: "Отправить",
     loading: "Загрузка...",
+    findDestination: "Найти направление",
     
     // Description Page
     welcome: "Добро пожаловать в агентство путешествий Крылья Эфиопии",
@@ -269,7 +270,7 @@ export const translations = {
     // Navigation
     home: "Home",
     tours: "Our Tours",
-    contact: "Contact",
+    contact: "Contact us",
     addisRoute: "Addis Route",
     entoto: "Entoto",
     addisDayRoute: "One Day Addis Route",
@@ -323,6 +324,7 @@ export const translations = {
     send: "Send",
     submit: "Submit",
     loading: "Loading...",
+    findDestination: "Find Destination",
     
     // Description Page
     welcome: "Welcome to Wings of Ethiopia Travel Agency",
@@ -412,7 +414,7 @@ export const translations = {
         description: "Learn more about our agency"
       },
       contact: {
-        title: "Contact",
+        title: "Contact us",
         description: "Contact us for booking"
       },
       destination: {

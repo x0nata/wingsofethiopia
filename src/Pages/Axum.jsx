@@ -8,6 +8,8 @@ import { translations } from "../translations/translations";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaPlane, FaHotel, FaUtensils, FaTicketAlt, FaUserTie } from 'react-icons/fa';
+import I3 from "../assets/I3.jpg";
+import I10 from "../assets/I10.jpg";
 
 const Axum = () => {
   const { language } = useLanguage();
@@ -19,12 +21,12 @@ const Axum = () => {
   const slides = [
     {
       id: 1,
-      imageUrl: "/src/assets/I3.jpg",
+      imageUrl: I3,
       alt: t.slides.image1
     },
     {
       id: 2,
-      imageUrl: "/src/assets/I10.jpg",
+      imageUrl: I10,
       alt: t.slides.image2
     },
   ];
