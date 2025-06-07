@@ -1,4 +1,6 @@
 import "../../src/Home.css";
+import "../../src/Home.css";
+import SEO from "../Components/SEO"; // Import the SEO component
 // import Navbar from "../Components/Navbar";
 import Description from "../Components/Description";
 import About from "../Components/About";
@@ -13,6 +15,11 @@ const HomePage = () => {
   const t = translations[language];
   return (
     <main style={{ background: "none" }}>
+      <SEO
+        title={t.heroTitle}
+        description={t.heroDescription}
+        keywords={t.homePageKeywords || "Ethiopia, tours, travel, Addis Ababa, Axum, Arba Minch, history, culture, nature, adventure, tourism, Africa, Wings of Ethiopia"}
+      />
       {/* <Navbar /> */}
       <div className="hero-section">
         <div>

@@ -17,6 +17,7 @@ export const translations = {
     heroTitle: "Откройте для себя Эфиопию вместе с нами",
     heroDescription: "Прикоснитесь к сердцу Эфиопии и откройте для себя ее богатейшую историю и восхитительные пейзажи",
     heroButton: "Начать путешествие",
+    homePageKeywords: "Эфиопия, туры, путешествия, Аддис-Абеба, Аксум, Арба-Мынч, история, культура, природа, приключения, туризм, Африка, Крылья Эфиопии",
     
     // Contact Section
     contactTitle: "Свяжитесь с нами",
@@ -284,6 +285,7 @@ export const translations = {
     heroTitle: "Discover Ethiopia with Us",
     heroDescription: "Touch the heart of Ethiopia and discover its rich history and breathtaking landscapes",
     heroButton: "Start Journey",
+    homePageKeywords: "Ethiopia, tours, travel, Addis Ababa, Axum, Arba Minch, history, culture, nature, adventure, tourism, Africa, Wings of Ethiopia",
     
     // Contact Section
     contactTitle: "Contact Us",
