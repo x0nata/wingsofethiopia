@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <LanguageProvider>
-      <SEO />
+      <SEO imageUrl="/src/assets/favicon.png" />
       <Router>
         <Navbar onMobileMenuOpen={handleDrawerOpen} />
         <MobileDrawer open={drawerOpen} onClose={handleDrawerClose}>

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useLanguage } from '../context/LanguageContext';
 
-const SEO = ({ title, description, keywords }) => {
+const SEO = ({ title, description, keywords, imageUrl }) => {
   const { language } = useLanguage();
 
   useEffect(() => {
@@ -61,22 +61,44 @@ const SEO = ({ title, description, keywords }) => {
       );
     }
 
-    // Update html lang attribute
-    document.documentElement.lang = language;
+    // Update og:image
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    const defaultImageUrl = imageUrl || '/src/assets/favicon.png'; // Default image URL
+    if (ogImage) {
+      ogImage.setAttribute('content', defaultImageUrl);
+    } else {
+      const newOgImage = document.createElement('meta');
+      newOgImage.setAttribute('property', 'og:image');
+      newOgImage.setAttribute('content', defaultImageUrl);
+      document.head.appendChild(newOgImage);
+    }
 
-    // Cleanup function to restore default title when component unmounts
-    return () => {
-      document.title = defaultTitle;
-    };
-  }, [language, title, description, keywords]);
-
-  return null;
-};
-
-SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  keywords: PropTypes.string,
-};
-
-export default SEO;
+    // Update favicon
+    let faviconLink = document.querySelector('link[rel="icon"]');
+    if (!faviconLink) {
+      faviconLink = document.createElement('link');
+      faviconLink.setAttribute('rel', 'icon');
+      document.head.appendChild(faviconLink);
+    }
+    faviconLink.setAttribute('href', defaultImageUrl);
+ 
+     // Update html lang attribute
+     document.documentElement.lang = language;
+ 
+     // Cleanup function to restore default title when component unmounts
+     return () => {
+       document.title = defaultTitle;
+     };
+   }, [language, title, description, keywords, imageUrl]);
+ 
+   return null;
+ };
+ 
+ SEO.propTypes = {
+   title: PropTypes.string,
+   description: PropTypes.string,
+   keywords: PropTypes.string,
+   imageUrl: PropTypes.string,
+ };
+ 
+ export default SEO;
