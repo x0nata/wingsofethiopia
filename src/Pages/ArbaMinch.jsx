@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import TourHero from "../Components/TourHero";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import I18 from "../assets/I18.jpg";
 import I17 from "../assets/I17.jpg";
 import I16 from "../assets/I16.jpg";
@@ -82,6 +83,10 @@ const ArbaMinch = () => {
 
   return (
     <section className="sec2">
+      <SEO
+        title="Arba Minch Tour - Ethiopia Tours"
+        description="Discover Arba Minch, including Nechisar National Park, Lake Chamo, and the Dorze people. Experience the natural wealth of Ethiopia."
+      />
       <TourHero />
       <div className="container mx-auto rounded-xl shadow-md py-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-Black text-4xl md:text-5xl font-bold text-center pb-8 bg-gradient-to-r from-Orange to-amber-500 bg-clip-text text-transparent">

@@ -4,6 +4,6 @@
   ],
   "redirects": [
     { "source": "/tours", "destination": "/destinations", "permanent": true },
-    { "source": "/ethiopia", "destination": "/home", "permanent": true }
+    { "source": "/ethiopia", "destination": "/", "permanent": true }
   ]
 }

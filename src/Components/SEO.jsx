@@ -1,20 +1,18 @@
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useLanguage } from '../context/LanguageContext';
-import { translations } from '../translations/translations';
 
-const SEO = () => {
+const SEO = ({ title, description, keywords }) => {
   const { language } = useLanguage();
-  const t = translations[language];
 
   useEffect(() => {
     // Get the default title from the document
-    const defaultTitle = document.title;
+    const defaultTitle = title || (language === 'ru' ? 'Крылья Эфиопии - Агентство путешествий' : 'Wings of Ethiopia - Travel Agency');
 
     // Update document title based on language
+    document.title = defaultTitle;
     if (language === 'ru') {
-      document.title = 'Крылья Эфиопии - Агентство путешествий';
-    } else {
-      document.title = defaultTitle; // Keep the default English title
+      document.title = title || 'Крылья Эфиопии - Агентство путешествий';
     }
 
     // Update meta description
@@ -22,9 +20,9 @@ const SEO = () => {
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        language === 'ru'
+        description || (language === 'ru'
           ? 'Крылья Эфиопии - Ваше надежное агентство путешествий для исследования красоты Эфиопии'
-          : 'Wings of Ethiopia - Your trusted travel agency for exploring the beauty of Ethiopia'
+          : 'Wings of Ethiopia - Your trusted travel agency for exploring the beauty of Ethiopia')
       );
     }
 
@@ -33,8 +31,23 @@ const SEO = () => {
     if (ogTitle) {
       ogTitle.setAttribute(
         'content',
-        language === 'ru' ? 'Крылья Эфиопии - Агентство путешествий' : defaultTitle
+        title || (language === 'ru' ? 'Крылья Эфиопии - Агентство путешествий' : 'Wings of Ethiopia - Travel Agency')
       );
+    }
+
+    // Update meta keywords
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    const defaultKeywords = (language === 'ru'
+      ? 'Эфиопия, туры, путешествия, Аддис-Абеба, Аксум, Арба-Мынч, история, культура, природа, приключения, туризм, Африка'
+      : 'Ethiopia, tours, travel, Addis Ababa, Axum, Arba Minch, history, culture, nature, adventure, tourism, Africa');
+
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', keywords || defaultKeywords);
+    } else {
+      const newMetaKeywords = document.createElement('meta');
+      newMetaKeywords.setAttribute('name', 'keywords');
+      newMetaKeywords.setAttribute('content', keywords || defaultKeywords);
+      document.head.appendChild(newMetaKeywords);
     }
 
     // Update og:description
@@ -42,9 +55,9 @@ const SEO = () => {
     if (ogDescription) {
       ogDescription.setAttribute(
         'content',
-        language === 'ru'
+        description || (language === 'ru'
           ? 'Откройте для себя красоту Эфиопии с нашими эксклюзивными турами'
-          : 'Discover the beauty of Ethiopia with our exclusive tours'
+          : 'Discover the beauty of Ethiopia with our exclusive tours')
       );
     }
 
@@ -55,9 +68,15 @@ const SEO = () => {
     return () => {
       document.title = defaultTitle;
     };
-  }, [language]);
+  }, [language, title, description, keywords]);
 
   return null;
 };
 
-export default SEO; 
+SEO.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  keywords: PropTypes.string,
+};
+
+export default SEO;

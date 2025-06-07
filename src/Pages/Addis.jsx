@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import TourHero from "../Components/TourHero";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import I11 from "../assets/I11.jpg";
 import I5 from "../assets/I5.jpg";
 import I2 from "../assets/I2.jpg";
@@ -67,6 +68,10 @@ const Addis = () => {
 
   return (
     <section className="sec2">
+      <SEO
+        title="Addis Ababa Day Tour - Ethiopia Tours"
+        description="Explore Addis Ababa with our day tour, visiting palaces, museums, and orthodox shrines. Discover Ethiopia's capital city."
+      />
       <TourHero />
       <div className="container mx-auto rounded-xl shadow-md py-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-Black text-4xl md:text-5xl font-bold text-center pb-8 bg-gradient-to-r from-Orange to-amber-500 bg-clip-text text-transparent">

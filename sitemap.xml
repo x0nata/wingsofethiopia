@@ -28,30 +28,36 @@
     <loc>https://wingsofethiopia.com/addis</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wingsofethiopia.com/addis1</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://wingsofethiopia.com/addisit</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://wingsofethiopia.com/arbaminch</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://wingsofethiopia.com/axum</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wingsofethiopia.com/notfound</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

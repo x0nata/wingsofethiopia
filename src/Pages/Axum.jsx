@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import TourHero from "../Components/TourHero";
 import Footer from "../Components/Footer";
+import SEO from "../Components/SEO";
 import { FaTelegram } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations/translations";
@@ -57,6 +58,10 @@ const Axum = () => {
 
   return (
     <section className="sec2">
+      <SEO
+        title="Axum Tour - Ethiopia Tours"
+        description="Explore the ancient city of Axum, a UNESCO World Heritage site, with its historical attractions and ancient temples. Discover the rich history of Ethiopia."
+      />
       <TourHero />
       <div className="container mx-auto rounded-xl shadow-md py-10 px-4 sm:px-6 lg:px-8">
         <motion.h1 
