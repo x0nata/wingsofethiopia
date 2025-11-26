@@ -59,7 +59,7 @@ const ContactForm = () => {
             </div>
             <h3 className="text-Orange text-xl font-bold mb-3">{t.phone}</h3>
             <p className="text-DarkGray text-lg leading-relaxed">
-              +251994717954
+              +251963397419
             </p>
           </motion.div>
 
