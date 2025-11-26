@@ -97,7 +97,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-row items-center group">
                 <FaPhone className="text-Orange text-lg sm:text-xl group-hover:scale-110 transition-transform duration-300" />
-                <p className="ml-4 group-hover:text-Orange transition-colors duration-300">+251994717954</p>
+                <p className="ml-4 group-hover:text-Orange transition-colors duration-300">+251963397419</p>
               </div>
               <div className="flex flex-row items-center group">
                 <FaPaperPlane className="text-Orange text-lg sm:text-xl group-hover:scale-110 transition-transform duration-300" />
